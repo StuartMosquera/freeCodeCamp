@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Landing Page</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <img id="header-img" src="./Images/codeschool-logo.png" alt="CodeSchool logo">
+    <nav id="nav-bar">
+      <ul>
+        <li><a class="nav-link" href="#features">Features</a></li>
+        <li><a class="nav-link" href="#how-it-works">How It Works</a></li>
+        <li><a class="nav-link" href="#pricing">Pricing</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Main -->
+  <main>
+    <form id="form" action="https://www.freecodecamp.com/email-submit">
+      <fieldset>
+        <legend>Crafted with Code, Built by Hands</legend>
+        <label><input id="email" class="form-control" name="email" type="email" placeholder="Enter your email address" required></label>
+        <input id="submit" type="submit" value="Get Started">
+      </fieldset>
+    </form>
+    <section id="features">
+      <article class="feature">
+        <img src="./Images/books.png" alt="Books">
+        <div class="description">
+          <h2>Premium Learning Resources</h2>
+          <p>Our coding programs utilize the latest industry-standard materials, designed to enhance your learning experience and ensure your skills stay relevant.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <img src="./Images/lightning-bolt.png" alt="Lightning Bolt">
+        <div class="description">
+          <h2>Quick Enrollment</h2>
+          <p>We make it easy for you to start your coding journey. Once you sign up, you’ll gain immediate access to your courses and resources.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <img src="./Images/check-mark.png" alt="Check Mark">
+        <div class="description">
+          <h2>Quality Assurance</h2>
+          <p>We are committed to your success. Every course comes with a satisfaction guarantee, and our instructors are always available to provide support and feedback to ensure you reach your goals.</p>
+        </div>
+      </article>
+    </section>
+    <section id="how-it-works">
+      <p>¡Program like a pro with us!</p>
+      <iframe id="video" src="https://www.youtube.com/embed/_QmyeFfiZaU" frameborder="0" allowfullscreen></iframe>
+    </section>
+    <section id="pricing">
+      <article class="individual-price">
+        <h3>Front-End Developer</h3>
+        <h4>$100</h4>
+        <ul>
+          <li>Web Development</li>
+          <li>JavaScript</li>
+          <li>React</li>
+        </ul>
+        <button class="btn">Select</button>
+      </article>
+      <article class="individual-price">
+        <h3>Back-End Developer</h3>
+        <h4>$200</h4>
+        <ul>
+          <li>JavaScript</li>
+          <li>SQL</li>
+          <li>Node.js & MongoDB</li>
+        </ul>
+        <button class="btn">Select</button>
+      </article>
+      <article class="individual-price">
+        <h3>Full-Stack Developer</h3>
+        <h4>$250</h4>
+        <ul>
+          <li>Front-End Developer Career</li>
+          <li>Back-End Developer Career</li>
+          <li class="invisible">(insert data)</li>
+        </ul>
+        <button class="btn">Select</button>
+      </article>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <ul>
+      <li>Privacy</li>
+      <li>Terms</li>
+      <li>Contact</li>
+    </ul>
+    <p>Copyright 2024, CodeSchool</p>
+    <p>&copy; Made by <a class="creator" href="https://github.com/StuartMosquera" target="_blank">Stuart Mosquera</a></p>
+  </footer>
+</body>
+</html>
+<!-- Made by Stuart Mosquera -->

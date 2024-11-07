@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Documentation Page</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- Nav -->
+  <nav id="navbar">
+    <header>
+      <h1>D3.js Documentation</h1>
+    </header>
+    <ul class="nav-ul">
+      <li><a class="nav-link" href="#introduction">Introduction</a></li>
+      <li><a class="nav-link" href="#anatomy">Anatomy</a></li>
+      <li><a class="nav-link" href="#interactivity">Interactivity</a></li>
+      <li><a class="nav-link" href="#observable">Observable</a></li>
+      <li><a class="nav-link" href="#scaling">Scaling</a></li>
+      <li><a class="nav-link" href="#selection">Selection</a></li>
+      <li><a class="nav-link" href="#styling">Styling</a></li>
+      <li><a class="nav-link" href="#reference">Reference</a></li>
+    </ul>
+  </nav>
+  <!-- Main -->
+  <main id="main-doc">
+    <section class="main-section" id="introduction">
+      <header>
+        <h2>Introduction</h2>
+      </header>
+      <article>
+        <p>D3 is a popular JavaScript visualization library. It has been the tool of choice for many designers that need to make highly custom, interactive data visualizations. However, the freedom and control of D3 also carries significant costs such as a steep learning curve, and a significant development cycle time that is typically only viable for polished, final visualizations.</p>
+        <p>Mike Bostock created D3 in 2011. The library has grown and evolved over time with the aid of many contributors and is now one of a family of visualization tools that includes Observable Plot (a high-level plotting library for exploratory data analysis) and the online data analysis platform and notebook Observable.</p>
+        <p>The D3 library contains a number of low-level classes dedicated to specific chart elements or features. The concepts below address these foundational elements as well as many of the most commonly used methods that are often used in the scaffolding of a visualization piece.</p>
+      </article>
+    </section>
+    <section class="main-section" id="anatomy">
+      <header>
+        <h2>Anatomy</h2>
+      </header>
+      <article>
+        <p>The anatomy or structure of a D3 chart is built through the use of a range of methods to manipulate data and aesthetic parameters applied to an SVG object. A chart can be seen as a meta-function, within it are objects and methods that generate the various components of a chart (e.g., paths, axes, labels, etc.) and at the end of it the result, or return, is an SVG that is the sum of all these intermediate operations.</p>
+        <h3>Syntax</h3>
+        <p>In broad strokes, a chart definition will often take the following form:</p>
+        <pre><code>const marginTop = val;          // The top of the definition is generally
+const marginRight = val;        // used to set values such as margins,
+...                             // chart dimensions, and scales
+
+const svg = d3.create("svg")    // An svg container is declared and attributes
+  .attr("viewbox", [0,0, w, h]) // are added to specify the base parameters
+  ...
+
+svg.append("g")                 // Additional sections are chained to add data
+  .selectAll("element")         // as well as more peripheral elements
+  .data(source)                 // that may include text and interactivity
+  .join("element")
+  .attr("x", d => d / 2)
+  ...
+
+container.append(svg.node())    // Append the final chart object</code></pre>
+        <p>Traditionally, a chart definition will be set within a &lt;script&gt; tag in an HTML document. By convention the first declarations describe all of the base parameters, which includes the margins and dimensions of the chart. Next, an svg “container” is declared and assigned the arguments defined in the previous section.</p>
+        <p>Each block that follows are functions that serve to create some aspect of the chart by operating on data and applying properties specified through attributes (.attr()).</p>
+        <p>At the end of the definition an .append() call adds the graphic result of the processing to a &lt;div&gt;, which is often named “container”.</p>
+     </article>
+    </section>
+    <section class="main-section" id="interactivity">
+      <header>
+        <h2>Interactivity</h2>
+      </header>
+      <article>
+        <p>D3.js, or Data-Driven Documents, is a powerful JavaScript library for creating dynamic and interactive data visualizations in web browsers. It facilitates the binding of data to DOM elements, enabling seamless updates and transitions. With its declarative approach to manipulating the Document Object Model (DOM), D3.js empowers developers to create engaging and responsive visualizations, making it a go-to tool for building data-driven applications on the web.</p>
+        <h3>Adding Tooltips for Enhanced Information</h3>
+        <p>Tooltips are a crucial element in interactive visualizations, providing additional context when users hover over data points. The following code demonstrates how to integrate tooltips into a D3.js visualization. This is a very basic example, it creates a square block. When a user hovers over the block they will activate a tooltip with the text “this is a square!”</p>
+        <pre><code>// Select the square element
+const square = d3.select('rect.square');
+
+// Event listener for mouseover event
+square.on('mouseover', () => {
+  // Show the tooltip
+  d3.select('.tooltip')
+    .style('opacity', 1)
+    .style('left', d3.event.pageX + 'px')
+    .style('top', d3.event.pageY + 'px');
+});
+
+// Event listener for mouseout event
+square.on('mouseout', () => {
+  // Hide the tooltip
+  d3.select('.tooltip').style('opacity', 0);
+});</code></pre>
+        <p>Make sure you have your html file setup using this script before running.</p>
+        <h3>Functions and Future Considerations</h3>
+        <p>D3.js provides a plethora of functions and methods for creating interactive and engaging visualizations. Delving deeper into D3.js interactivity, there are a range of functions worth exploring like .transition() for smooth animations, incorporating user interactions with .on() events, and experimenting with force-directed layouts for dynamic network visualizations.</p>
+        <h3>Interactivity</h3>
+        <ul>
+          <li>.classed()</li>
+          <li>.delay()</li>
+          <li>.duration()</li>
+          <li>.ease()</li>
+          <li>.on()</li>
+          <li>.transition</li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="observable">
+      <header>
+        <h2>Observable</h2>
+      </header>
+      <article>
+        <p>Observable is a platform and notebook, similar to Jupyter, for conducting data analysis, and creating visualizations. Observable the platform is an online repository that provides tools for conducting and sharing studies. The notebook is a cell-based IDE for working with data in JavaScript. In addition to D3 there is also the Observable Plot library, which was designed specifically for generating charts quickly during exploratory analysis.</p>
+        <h3>Traditional D3 vs Observable D3</h3>
+        <p>D3 visualizations were originally developed to be defined within a &lt;script&gt; tag inside an HTML doc. Now, there are several alternative environments for creating D3 charts, and an Observable notebook is one of the most accessible ways to get started with D3. However, there are some differences in implementation to consider. The following sections highlight a few of the elements that must be addressed when creating or transferring a chart to an Observable notebook.</p>
+        <h3>Notebook Cells</h3>
+        <p>An Observable notebook consists of a number of cells that can support a variety of content: images, text, code, etc. Each cell can be thought of as a code block or independent function, each cell should return a value. Therefore, the elements of a typical chart may be allocated somewhat differently within a notebook. There often will be one or more cells dedicated to addressing the data coming in, this may involve a short script to create some data or an import cell followed by cells to clean and reshape the data as needed.</p>
+        <h3>Data Access</h3>
+        <p>Notebooks provide a variety of ways to bring in data, allowing for flexibility and customization, but some alternatives may require more setup. Perhaps the easiest option is having a local Excel or CSV file which can be added straightforwardly via drag-and-drop. However, there’s also the ability to pull directly from a database, to import data from another notebook, and many other options.</p>
+        <h3>Observable JS</h3>
+        <p>One of the principal differences between D3 in an HTML file and Observable is the syntax. Observable notebooks use a JavaScript variant specific to this environment. For example, top-level variables in a notebook are not prefixed by keywords such as const or let. And all top-level variables are also immutable by default.</p>
+        <pre><code>totalX = Math.sqrt(100) // A basic top-level variable declaration</code></pre>
+        <p>Often a chart definition itself will be confined to one cell and will use a syntax similar to that of a JavaScript function, as seen below:</p>
+        <pre><code>chart = {                         // In a notebook the chart definition is enclosed in
+  const marginTop = val;          // curly braces and assigned to a variable
+  const marginRight = val;
+  ...
+
+  const svg = d3.create("svg")
+    .attr("viewbox", [0,0, w, h]) 
+    ...
+            
+  svg.append("g")
+    .selectAll("element")
+    .data(source)
+    .join("element")
+      .attr("x", d => d / 2)
+      ...
+            
+  return svg.node()               // The traditional syntax would append
+}                                 // the svg to a div but here it's a return value</code></pre>
+      </article>
+    </section>
+    <section class="main-section" id="scaling">
+      <header>
+        <h2>Scaling</h2>
+      </header>
+      <article>
+        <p>Scaling involves the transformation of data in order to change the domain of values to suit the parameters of a given chart. Axes are the representation of the final range of values generated by scales. In D3 there are a number of convenient methods used to create scales.</p>
+        <h3>Syntax</h3>
+        <p>A D3 scale generally takes the following form:</p>
+        <pre><code>svg.scaleType()            // A scale function is called 
+  .domain(input1, input2)  // Parameters for the domain and
+  .range(output1, output2) // the range are passed</code></pre>
+        <p>D3 has scaling functions that include .scaleLinear(), .scaleLog(), .scaleOrdinal(), and many others to address common scaling conversions. A scale definition will begin with one of these functions paired with the .domain() and .range() methods to set the parameters that will govern the data used and the final range those values will take.</p>
+        <h3>D3 Scale Methods</h3>
+        <p>The following methods are part of the D3 scale class:</p>
+        <ul>
+          <li>.domain()</li>
+          <li>.range()</li>
+          <li>.scaleBand()</li>
+          <li>.scaleLinear()</li>
+          <li>d3.scaleOrdinal()</li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="selection">
+      <header>
+        <h2>Selection</h2>
+      </header>
+      <article>
+        <p>Selection is the assignment and manipulation of elements in the construction of a chart. In D3 there are a range of methods that are used to add and filter elements in order to allocate specific data and apply modifications. The most widely used among these are the .select(), .selectAll() and .append() methods.</p>
+        <p>The following sections are a brief introduction to the role and implementation of selections in D3. Entries that cover these methods in more depth are linked at the bottom.</p>
+        <h3>Syntax</h3>
+        <pre><code>svg.selectAll("element")    // A selection method is called on an object
+  .data("source")           // additional methods are chained to the declaration
+  .join("element")
+    .attr("x", d => d[0])   // The element "selected" is now defined via attributes 
+    .attr("y", d => d[1])
+    ...</code></pre>
+        <p>The pseudo code above represents a pattern commonly found in D3 for binding data and graphic elements, it is the selectAll()/data()/join()/attr() pattern. A selection begins with an initialization, .selectAll("element"), and then the elements that will populate this structure/allocation are defined in turn through the chained methods that follow.</p>
+        <h3>Example</h3>
+        <p>A scatterplot is one of the simplest charts, it is a representation of data in 2-D space where each element is located based on an associated x-y coordinate value. Generally, each element is marked with a point, circle, or some other shape.</p>
+        <p>For this example, the data will consist of 50 points generated with the aid of the JavaScript Math.random() method. The set is constructed as follows:</p>
+        <pre><code>let dataset = []; 
+let totalPoints = 50;
+let rangeX = Math.random() * 500;
+let rangeY = Math.random() * 500;
+
+for (let i = 0; i &lt; totalPoints; i++) {
+  let newX = Math.floor(Math.random() * rangeX);
+  let newY = Math.floor(Math.random() * rangeY);
+  dataset.push([newX, newY]);
+}</code></pre>
+        <p>The dataset constructed above is incorporated into the D3 chart definition using the pattern highlighted above:</p>
+        <pre><code>svg.selectAll("circle")         // Declaring the circles that will represent each pt
+  .data(dataset)                // Calling the dataset
+  .join("circle") .             // The circle that will match with each data pt
+    .attr("cx", d => x(d[0]))   // is added and defined
+    .attr("cy", d => y(d[1]))
+    .attr("r", d => Math.random(1,10) * 30)
+    .attr("fill", "#f5b042")
+    .attr("opacity", .5);</code></pre>
+        <p>In this selection the .selectAll() method is chained to the svg container, and the argument "circle" is given. Then:</p>
+        <ul>
+          <li>The data previously generated is introduced via the .data() method.</li>
+          <li>The element that matches with each of the data points provided is initialized with .join().</li>
+          <li>Attributes that define the element are chained together to compose the definition of "circle".</li>
+          <li>There are five characteristics defined that articulate each point. A location is provided through arrow functions that return either the x or y value translated by the associated scale. The math.Random() method is used again to generate radius values. And finally the color and opacity of the elements is set.</li>
+        </ul><br>
+        <p>The entire chart definition is described by the following code:</p>
+        <pre><code>const marginTop = 20;
+const marginRight = 20;
+const marginBottom = 30;
+const marginLeft = 40;
+const width = 900;
+const height = 400;
+const svg = d3
+  .create('svg')
+  .attr('viewBox', [0, 0, width, height])
+  .attr('width', width)
+  .attr('height', height)
+  .attr('style', 'max-width: 100%; height: auto;');
+          
+const x = d3
+  .scaleLinear()
+  .domain([0, 500])
+  .range([marginLeft, width - marginRight]);
+
+const y = d3
+  .scaleLinear()
+  .domain([0, 500])
+  .range([height - marginBottom, marginTop]);
+          
+svg
+  .selectAll('circle')
+  .data(dataset)
+  .join('circle')
+  .attr('cx', (d) => x(d[0]))
+  .attr('cy', (d) => y(d[1]))
+  .attr('r', (d) => Math.random(1, 10) * 30)
+  .attr('fill', '#f5b042')
+  .attr('opacity', 0.5);
+          
+svg
+  .append('g')
+  .attr('transform', `translate(0,${height - marginBottom})`)
+  .call(d3.axisBottom(x));
+          
+svg
+  .append('g')
+  .attr('transform', `translate(${marginLeft},0)`)
+  .call(d3.axisLeft(y));
+          
+container.append(svg.node());</code></pre>
+        <h3>Selection</h3>
+        <ul>
+          <li>.append()</li>
+          <li>.csv()</li>
+          <li>.data()</li>
+          <li>.enter()</li>
+          <li>.join()</li>
+          <li>.select()</li>
+          <li>.selectAll()</li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="styling">
+      <header>
+        <h2>Styling</h2>
+      </header>
+      <article>
+        <p>Styling methods assign values that determine the rendered form and content of chart components, such as the text displayed, or the color and opacity of a given symbol. These methods belong to the d3-selection class but are addressed separately based on their specialized role in the chart-making process.</p>
+        <h3>Modifying Elements</h3>
+        <p>The methods collected here are used to apply values to a given selection, such as in the following code:</p>
+        <pre><code>const path = svg.append("g")
+  .attr("fill", "none")
+  .attr("stroke", "steelblue")
+  .attr("stroke-width", 1.5)
+  .attr("stroke-linejoin", "round")
+  .attr("stroke-linecap", "round")
+  ...</code></pre>
+        <p>In this excerpt, a path is declared and followed by a series of chained .attr() calls that set the various properties that will be applied to the path such as the color ("steelblue"), and the width of the path (1.5).</p>
+        <h3>D3 Style Methods</h3>
+        <ul>
+          <li>.attr()</li>
+          <li>.html()</li>
+          <li>.style()</li>
+          <li>.text()</li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="reference">
+      <header>
+        <h2>Reference</h2>
+      </header>
+      <article>
+        <ul>
+          <li class="last-li">All the documentation in this page is taken from <a class="reference" href="https://d3js.org/what-is-d3" target="_blank">D3.js</a></li>
+        </ul>
+      </article>
+    </section>
+    <footer>
+      <p>&copy; Made by <a class="creator" href="https://github.com/StuartMosquera" target="_blank">Stuart Mosquera</a></p>
+    </footer>
+  </main>
+</body>
+</html>
+<!-- Made by Stuart Mosquera -->
