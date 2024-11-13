@@ -81,7 +81,7 @@ abbr {
 }
 
 h3:last-of-type {
-  padding-bottom: 3rem;
+  padding: 0 1rem 3rem;
 }
 
 #tribute-link {

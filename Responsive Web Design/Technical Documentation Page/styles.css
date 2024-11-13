@@ -175,8 +175,9 @@ footer {
 
   #main-doc {
     left: 0;
+    margin: 0 auto;
     position: static;
-    width: 100%;
+    width: 98%;
   }
 
   pre {
@@ -210,14 +211,15 @@ footer {
 
   #main-doc {
     left: 0;
+    margin: 0 auto;
     position: static;
-    width: 100%;
+    width: 98%;
   }
 
   article > ul {
     margin: 0 auto;
     padding-left: 0;
-    width: 75%;
+    width: 80%;
   }
 
   pre {
