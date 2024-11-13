@@ -103,14 +103,18 @@ pre {
   background-color: rgba(120, 120, 120, 0.2);
   border-radius: 5px;
   display: block;
-  font-family: inherit;
   font-size: 0.90em;
+  font-weight: inherit;
   margin-bottom: 1rem;
   overflow-x: auto;
   padding: 25px 20px;
   text-align: left;
   white-space: pre;
   width: 98%;
+}
+
+code {
+  font-family: 'Courier New', monospace;
 }
 
 .last-li {
