@@ -93,6 +93,7 @@ article > ul li {
 p {
   font-weight: lighter;
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 h3 {
