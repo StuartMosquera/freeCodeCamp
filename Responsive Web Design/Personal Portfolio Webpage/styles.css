@@ -151,7 +151,7 @@ body {
 .hidden-code {
   color: #ff8c00;
   opacity: 0;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
   visibility: hidden;
 }
 
@@ -167,7 +167,7 @@ body {
   justify-content: center;
   margin: 2.5rem auto 3rem;
   padding: 10px 15px;
-  transition: background-color 0.5s ease-out;
+  transition: background-color 0.2s ease-in;
 }
 
 .btn:hover {
@@ -183,7 +183,7 @@ body {
   display: inline-block;
   font-weight: bold;
   margin-left: 5px;
-  transition: transform 0.5s ease-out;
+  transition: transform 0.4s ease-out;
 }
 
 #contact {
@@ -221,7 +221,7 @@ body {
   color: inherit;
   display: inherit;
   text-decoration: none;
-  transition: transform 0.5s ease-out;
+  transition: transform 0.4s ease-out;
 }
 
 .logo:hover {

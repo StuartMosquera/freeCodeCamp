@@ -93,7 +93,7 @@ legend {
   margin-top: 20px;
   outline: 0;
   padding: 5px 10px;
-  transition: border-color 0.5s ease-in;
+  transition: border-color 0.2s ease-in;
   width: 300px;
 }
 
@@ -113,7 +113,7 @@ legend {
   margin: 20px auto 0;
   padding: 5px 20px;
   text-transform: uppercase;
-  transition: background-color 1s ease-out;
+  transition: background-color 0.2s ease-in;
 }
 
 #submit:hover {
@@ -130,7 +130,7 @@ legend {
   column-gap: 30px;
   display: flex;
   flex-flow: row nowrap;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   text-align: left;
   word-break: break-word;
 }
@@ -145,6 +145,8 @@ legend {
 }
 
 #how-it-works > p {
+  color: #ff8c00;
+  font-weight: bolder;
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -208,7 +210,7 @@ legend {
   margin: 15px auto;
   padding: 10px 15px;
   text-transform: uppercase;
-  transition: background-color 1s ease-out;
+  transition: background-color 0.2s ease-in;
 }
 
 .btn:hover {

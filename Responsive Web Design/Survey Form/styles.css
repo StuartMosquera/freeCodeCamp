@@ -8,7 +8,7 @@
 /* Global Styles */
 body {
   background-attachment: fixed;
-  background-image: linear-gradient(115deg, rgba(60, 60, 160, 0.8), rgba(140, 140, 210, 0.6)), url("./Images/people-centered-feat.jpeg");
+  background-image: linear-gradient(115deg, rgba(60, 60, 160, 0.8), rgba(140, 140, 210, 0.6)), url("./Images/people-centered-feat.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; 
@@ -24,6 +24,7 @@ body {
 /* Header */
 header {
   margin-top: 2rem;
+  padding: 0 1rem;
   text-align: center;
   word-break: break-word;
 }
@@ -35,7 +36,6 @@ header > h2 {
 #description {
   font-style: italic;
   font-weight: lighter;
-  padding: 0 1rem;
   text-shadow: 1px 1px 1px #a9a9a9;
 }
 
@@ -75,7 +75,7 @@ label {
 
 .border {
   background-clip: padding-box; 
-  transition: border-color 0.5s ease-in, box-shadow 0.5s ease-in;
+  transition: border-color 0.2s ease-in, box-shadow 0.2s ease-in;
 } 
 
 .border:focus {
@@ -116,7 +116,7 @@ label {
   font-weight: inherit;
   margin: 0 auto 12px;
   padding: 1rem 0;
-  transition: box-shadow 0.5s ease-in-out;
+  transition: box-shadow 0.4s ease-in-out;
   width: 95%;
 }
 
