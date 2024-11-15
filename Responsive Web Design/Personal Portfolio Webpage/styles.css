@@ -162,6 +162,7 @@ body {
   border-radius: 2.5px;
   color: var(--foreground-color);
   display: inline-flex;
+  font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
   justify-content: center;
